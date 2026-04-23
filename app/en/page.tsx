@@ -11,11 +11,9 @@ export default function EnglishPage() {
 
   return (
     <main className="page">
-      <LanguageSwitch locale="en" labels={content.nav} />
+      <LanguageSwitch locale="en" />
       <Hero
         identityName={content.hero.identityName}
-        identityRole={content.hero.identityRole}
-        headlineLines={content.hero.headlineLines}
         supporting={content.hero.supporting}
         ctaLabel={content.hero.ctaLabel}
         ctaHref={content.hero.ctaHref}
@@ -25,7 +23,7 @@ export default function EnglishPage() {
         title={content.projectsTitle}
         projects={content.projects}
         locale="en"
-        detailLabel="View project detail"
+        detailLabel="View case study"
       />
       <VisualWork title={content.visual.title} intro={content.visual.intro} sets={content.visual.sets} />
       <About title={content.about.title} text={content.about.text} />

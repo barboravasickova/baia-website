@@ -8,7 +8,7 @@ type VisualWorkProps = {
 
 export default function VisualWork({ title, intro, sets }: VisualWorkProps) {
   return (
-    <section className="visual-section">
+    <section id="process" className="visual-section">
       <h2 className="visual-section-title">{title}</h2>
       <p className="visual-section-intro">{intro}</p>
 

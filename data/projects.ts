@@ -68,8 +68,7 @@ export const contentByLocale: Record<Locale, SiteContent> = {
       identityRole: "UX / Product Designer",
       headlineLines: ["Navrhuji digitální produkty,", "které dávají smysl a dobře se používají."],
       supporting: [
-        "Kombinuji UX myšlení s vizuálním stylem,\naby rozhraní byla srozumitelná a zapamatovatelná.",
-        "Tvořím pod jménem BAIA."
+        "Navrhuji digitální produkty, které propojují byznys cíle s potřebami uživatelů. Kombinuji analytické UX myšlení s čistým vizuálním stylem."
       ],
       ctaLabel: "Zobrazit projekty",
       ctaHref: "#projekty"

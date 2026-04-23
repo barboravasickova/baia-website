@@ -5,20 +5,17 @@ type ProjectCardProps = {
   project: Project;
   detailHref: string;
   detailLabel: string;
+  reverse?: boolean;
 };
 
-export default function ProjectCard({ project, detailHref, detailLabel }: ProjectCardProps) {
+export default function ProjectCard({ project, detailHref, detailLabel, reverse = false }: ProjectCardProps) {
+  const previewStyleClass = `project-card-media-placeholder project-preview-${project.id}`;
+
   return (
-    <article className="project-card">
+    <article className={`project-card ${reverse ? "project-card-reverse" : ""}`}>
       <div className="project-card-layout">
         <div className="project-card-media">
-          <img
-            className="project-card-img"
-            src={project.previewImage}
-            alt={project.previewAlt}
-            loading="lazy"
-            decoding="async"
-          />
+          <div className={previewStyleClass} aria-label={project.previewAlt} role="img" />
         </div>
         <div className="project-card-body">
           <h3 className="project-card-title">{project.name}</h3>

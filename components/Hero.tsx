@@ -1,7 +1,5 @@
 type HeroProps = {
   identityName: string;
-  identityRole: string;
-  headlineLines: [string, string];
   supporting: string[];
   ctaLabel: string;
   ctaHref: string;
@@ -9,34 +7,19 @@ type HeroProps = {
 
 export default function Hero({
   identityName,
-  identityRole,
-  headlineLines,
   supporting,
   ctaLabel,
   ctaHref
 }: HeroProps) {
-  const [line1, line2] = headlineLines;
+  const introText = supporting[0] ?? "";
 
   return (
-    <section className="hero-section" aria-labelledby="hero-headline">
+    <section id="home" className="hero-section" aria-labelledby="hero-headline">
       <div className="hero-inner">
-        <div className="hero-identity">
-          <div className="hero-identity-name">{identityName}</div>
-          <div className="hero-identity-role">{identityRole}</div>
-        </div>
-
         <h1 id="hero-headline" className="hero-headline">
-          <span className="hero-headline-line">{line1}</span>
-          <span className="hero-headline-line">{line2}</span>
+          {identityName}
         </h1>
-
-        <div className="hero-supporting">
-          {supporting.map((block, index) => (
-            <p key={index} className="hero-supporting-text">
-              {block}
-            </p>
-          ))}
-        </div>
+        <p className="hero-intro">{introText}</p>
 
         <a className="hero-cta" href={ctaHref}>
           {ctaLabel}

@@ -25,12 +25,13 @@ export default function Projects({ id, title, projects, locale, detailLabel }: P
     <section id={id} className="projects-section">
       <h2 className="projects-section-title">{title}</h2>
       <div className="projects-grid">
-        {sortedProjects.map((project) => (
+        {sortedProjects.map((project, index) => (
           <ProjectCard
             key={project.id}
             project={project}
             detailHref={`/${locale}/projects/${project.id}`}
             detailLabel={detailLabel}
+            reverse={index % 2 === 1}
           />
         ))}
       </div>

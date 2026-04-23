@@ -3,21 +3,37 @@ import type { Locale } from "@/data/projects";
 
 type LanguageSwitchProps = {
   locale: Locale;
-  labels: {
-    cz: string;
-    en: string;
-  };
 };
 
-export default function LanguageSwitch({ locale, labels }: LanguageSwitchProps) {
+export default function LanguageSwitch({ locale }: LanguageSwitchProps) {
+  const sectionLinks =
+    locale === "cz"
+      ? [
+          { label: "Projekty", href: "#projekty" },
+          { label: "Proces", href: "#process" },
+          { label: "O mně", href: "#about" },
+          { label: "Kontakt", href: "#contact" }
+        ]
+      : [
+          { label: "Home", href: "#home" },
+          { label: "Projects", href: "#projects" },
+          { label: "Process", href: "#process" },
+          { label: "About", href: "#about" },
+          { label: "Contact", href: "#contact" }
+        ];
+
   return (
-    <div className="language-switch">
-      <Link href="/cz" className={locale === "cz" ? "active" : ""}>
-        {labels.cz}
+    <nav className="top-nav" aria-label={locale === "cz" ? "Hlavní navigace" : "Main navigation"}>
+      <Link href="/" className="top-nav-back-link">
+        ← ROZCESTNÍK
       </Link>
-      <Link href="/en" className={locale === "en" ? "active" : ""}>
-        {labels.en}
-      </Link>
-    </div>
+      <div className="top-nav-links">
+        {sectionLinks.map((item) => (
+          <a key={item.href} href={item.href}>
+            {item.label}
+          </a>
+        ))}
+      </div>
+    </nav>
   );
 }
