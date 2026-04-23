@@ -79,7 +79,8 @@ export const contentByLocale: Record<Locale, SiteContent> = {
         id: "psochazky",
         name: "Psocházky",
         type: "UX / Web Design",
-        summary: "Web pro trenérku psů zaměřený na zjednodušení komunikace s klienty.",
+        summary:
+          "Webová prezentace pro trenérku psů se zaměřením na optimalizaci klientského servisu. Návrh řeší zjednodušení komunikačních kanálů a vytvoření přehledného systému pro poptávku služeb a rezervace.",
         previewImage: "/projects/preview-psochazky.svg",
         previewAlt: "Psocházky – náhled webu",
         sections: [
@@ -140,7 +141,7 @@ export const contentByLocale: Record<Locale, SiteContent> = {
         name: "Lagom App",
         type: "UX Case Study",
         summary:
-          "UX case study mobilní aplikace zaměřené na vyvážený pohyb a duševní pohodu.",
+          "Kompletní proces návrhu mobilní aplikace pro zdravý pohyb. Od hloubkového uživatelského výzkumu a definice problémů přes wireframy až po prototyp zaměřený na udržitelné návyky.",
         previewImage: "/projects/preview-lagom.svg",
         previewAlt: "Lagom App – náhled mobilního UI",
         caseStudyPdf: {
@@ -191,12 +192,13 @@ export const contentByLocale: Record<Locale, SiteContent> = {
         ]
       },
       {
-        id: "coming-soon",
-        name: "Coming Soon",
-        type: "Nový projekt",
-        summary: "Nyní pracuji na novém projektu.",
+        id: "atelier-flora",
+        name: "Atelier Flora",
+        type: "UX/UI & Visual Identity",
+        summary:
+          "Digitální showroom a vizuální identita pro zakázkovou výrobu suchých vazeb. Projekt zaměřený na budování značky od základu a zefektivnění poptávkového procesu pro unikátní produkty na míru.",
         previewImage: "/projects/preview-coming-soon.svg",
-        previewAlt: "Nový projekt – náhled připravujeme",
+        previewAlt: "Atelier Flora – náhled projektu",
         sections: []
       }
     ],

@@ -14,8 +14,8 @@ export default function IllustrationPage() {
   return (
     <main className="page illustration-page" aria-label="Illustration and shop">
       <nav className="top-nav" aria-label="Navigace">
-        <Link href="/" className="top-nav-back-link">
-          ← ROZCESTNÍK
+        <Link href="/product-design" className="top-nav-back-link" aria-label="Zpět">
+          ←
         </Link>
       </nav>
 

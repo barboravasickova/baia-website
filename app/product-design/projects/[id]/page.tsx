@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { notFound } from "next/navigation";
 import LanguageSwitch from "@/components/LanguageSwitch";
 import { contentByLocale, getProjectByLocale } from "@/data/projects";
@@ -18,10 +17,7 @@ export default async function ProductDesignProjectDetailPage({ params }: Project
 
   return (
     <main className="page">
-      <LanguageSwitch locale="cz" />
-      <Link href="/product-design" className="back-link">
-        Zpet na hlavni stranku
-      </Link>
+      <LanguageSwitch locale="cz" backHref="/product-design" />
 
       <section className="project-detail">
         <h1>{project.name}</h1>

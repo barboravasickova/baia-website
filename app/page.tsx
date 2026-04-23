@@ -1,5 +1,7 @@
 import Link from "next/link";
+import Image from "next/image";
 import { Montserrat, Cormorant_Garamond } from "next/font/google";
+import baiaLogo from "@/images/baia_logo_static.jpg";
 
 const leftFont = Montserrat({
   subsets: ["latin", "latin-ext"],
@@ -23,7 +25,7 @@ export default function HomePage() {
 
       <Link href="/illustration" className={`split-panel split-panel-right ${rightFont.className}`}>
         <span className="split-panel-inner">
-          <h2 className="split-title split-title-strong">BAIA</h2>
+          <Image src={baiaLogo} alt="BAIA" className="split-logo" priority />
           <p className="split-subtitle">Illustrace &amp; Shop</p>
         </span>
       </Link>
