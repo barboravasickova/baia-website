@@ -14,17 +14,17 @@ const rightFont = Cormorant_Garamond({
 export default function HomePage() {
   return (
     <main className="split-landing" aria-label="Rozcestník">
-      <Link href="/cz" className={`split-panel split-panel-left ${leftFont.className}`}>
+      <Link href="/product-design" className={`split-panel split-panel-left ${leftFont.className}`}>
         <span className="split-panel-inner">
           <h1 className="split-title">Barbora Vašíčková</h1>
           <p className="split-subtitle">UX / Product Design</p>
         </span>
       </Link>
 
-      <Link href="/produkty/" className={`split-panel split-panel-right ${rightFont.className}`}>
+      <Link href="/illustration" className={`split-panel split-panel-right ${rightFont.className}`}>
         <span className="split-panel-inner">
           <h2 className="split-title split-title-strong">BAIA</h2>
-          <p className="split-subtitle">Ilustrace &amp; Produkty</p>
+          <p className="split-subtitle">Illustrace &amp; Shop</p>
         </span>
       </Link>
     </main>

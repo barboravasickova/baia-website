@@ -3,14 +3,15 @@ import ProjectCard from "./ProjectCard";
 
 type ProjectsProps = {
   id: string;
-  title: string;
   projects: Project[];
   locale: "cz" | "en";
   detailLabel: string;
+  detailBasePath?: string;
 };
 
-export default function Projects({ id, title, projects, locale, detailLabel }: ProjectsProps) {
+export default function Projects({ id, projects, locale, detailLabel, detailBasePath }: ProjectsProps) {
   const homepageOrder = ["lagom-app", "psochazky"];
+  const resolvedDetailBasePath = detailBasePath ?? `/${locale}`;
   const sortedProjects = [...projects].sort((a, b) => {
     const indexA = homepageOrder.indexOf(a.id);
     const indexB = homepageOrder.indexOf(b.id);
@@ -23,15 +24,13 @@ export default function Projects({ id, title, projects, locale, detailLabel }: P
 
   return (
     <section id={id} className="projects-section">
-      <h2 className="projects-section-title">{title}</h2>
       <div className="projects-grid">
-        {sortedProjects.map((project, index) => (
+        {sortedProjects.map((project) => (
           <ProjectCard
             key={project.id}
             project={project}
-            detailHref={`/${locale}/projects/${project.id}`}
+            detailHref={`${resolvedDetailBasePath}/projects/${project.id}`}
             detailLabel={detailLabel}
-            reverse={index % 2 === 1}
           />
         ))}
       </div>

@@ -1,4 +1,7 @@
 import type { Project } from "@/data/projects";
+import lagomPreview from "@/images/lagom_iphone.jpg";
+import psochazkyPreview from "@/images/psochazky_nahled.png";
+import Image from "next/image";
 import Link from "next/link";
 
 type ProjectCardProps = {
@@ -10,12 +13,27 @@ type ProjectCardProps = {
 
 export default function ProjectCard({ project, detailHref, detailLabel, reverse = false }: ProjectCardProps) {
   const previewStyleClass = `project-card-media-placeholder project-preview-${project.id}`;
+  const previewImageById: Partial<Record<Project["id"], typeof psochazkyPreview>> = {
+    "lagom-app": lagomPreview,
+    psochazky: psochazkyPreview
+  };
+  const previewImage = previewImageById[project.id];
 
   return (
     <article className={`project-card ${reverse ? "project-card-reverse" : ""}`}>
       <div className="project-card-layout">
         <div className="project-card-media">
-          <div className={previewStyleClass} aria-label={project.previewAlt} role="img" />
+          {previewImage ? (
+            <Image
+              src={previewImage}
+              alt={project.previewAlt}
+              className="project-card-media-image"
+              fill
+              sizes="(min-width: 720px) 55vw, 100vw"
+            />
+          ) : (
+            <div className={previewStyleClass} aria-label={project.previewAlt} role="img" />
+          )}
         </div>
         <div className="project-card-body">
           <h3 className="project-card-title">{project.name}</h3>

@@ -2,16 +2,16 @@ import About from "@/components/About";
 import Contact from "@/components/Contact";
 import Hero from "@/components/Hero";
 import LanguageSwitch from "@/components/LanguageSwitch";
+import MyProcess from "@/components/MyProcess";
 import Projects from "@/components/Projects";
-import VisualWork from "@/components/VisualWork";
 import { contentByLocale } from "@/data/projects";
 
-export default function EnglishPage() {
-  const content = contentByLocale.en;
+export default function ProductDesignPage() {
+  const content = contentByLocale.cz;
 
   return (
     <main className="page">
-      <LanguageSwitch locale="en" />
+      <LanguageSwitch locale="cz" />
       <Hero
         identityName={content.hero.identityName}
         supporting={content.hero.supporting}
@@ -19,13 +19,13 @@ export default function EnglishPage() {
         ctaHref={content.hero.ctaHref}
       />
       <Projects
-        id="projects"
-        title={content.projectsTitle}
+        id="projekty"
         projects={content.projects}
-        locale="en"
-        detailLabel="View case study"
+        locale="cz"
+        detailLabel="Detail projektu"
+        detailBasePath="/product-design"
       />
-      <VisualWork title={content.visual.title} intro={content.visual.intro} sets={content.visual.sets} />
+      <MyProcess />
       <About title={content.about.title} text={content.about.text} />
       <Contact
         title={content.contact.title}

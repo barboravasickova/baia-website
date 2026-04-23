@@ -20,9 +20,6 @@ export default function Contact({ title, subtitle, email, social }: ContactProps
           <div className="contact-final-links">
             <a href={`mailto:${email}`}>{email}</a>
             {linkedInHref ? <a href={linkedInHref}>LinkedIn</a> : null}
-            <a href="https://www.instagram.com/baia.cz/" target="_blank" rel="noreferrer">
-              @baia.cz
-            </a>
             <a href="/cv-barbora-vasickova.pdf" className="contact-final-cv">
               Stáhnout životopis (PDF)
             </a>

@@ -7,7 +7,7 @@ type ProjectDetailPageProps = {
   params: Promise<{ id: string }>;
 };
 
-export default async function ProjectDetailPage({ params }: ProjectDetailPageProps) {
+export default async function ProductDesignProjectDetailPage({ params }: ProjectDetailPageProps) {
   const { id } = await params;
   const content = contentByLocale.cz;
   const project = getProjectByLocale("cz", id);
@@ -18,8 +18,8 @@ export default async function ProjectDetailPage({ params }: ProjectDetailPagePro
 
   return (
     <main className="page">
-      <LanguageSwitch locale="cz" labels={content.nav} />
-      <Link href="/cz" className="back-link">
+      <LanguageSwitch locale="cz" />
+      <Link href="/product-design" className="back-link">
         Zpet na hlavni stranku
       </Link>
 

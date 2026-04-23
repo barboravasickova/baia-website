@@ -79,7 +79,7 @@ export const contentByLocale: Record<Locale, SiteContent> = {
         id: "psochazky",
         name: "Psocházky",
         type: "UX / Web Design",
-        summary: "Web pro trenérku psů zaměřený na zjednodušení komunikace s klienty",
+        summary: "Web pro trenérku psů zaměřený na zjednodušení komunikace s klienty.",
         previewImage: "/projects/preview-psochazky.svg",
         previewAlt: "Psocházky – náhled webu",
         sections: [

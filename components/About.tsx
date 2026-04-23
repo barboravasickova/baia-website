@@ -49,7 +49,7 @@ export default function About({ title, text }: AboutProps) {
             to, že design má být i radost používat.
           </p>
 
-          <Link href="/creative" className="about-clean-link">
+          <Link href="/illustration" className="about-clean-link">
             Když zrovna neřeším UX, najdete mě u barev pod značkou BAIA →
           </Link>
         </div>
