@@ -670,6 +670,304 @@ p {
   color: #374151;
 }
 
+.lagom-case-study {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.lagom-hero {
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+  margin-bottom: 0.5rem;
+}
+
+.lagom-eyebrow {
+  margin: 0;
+  font-size: 0.78rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #6b7280;
+}
+
+.lagom-title {
+  margin: 0.4rem 0 1rem;
+  font-size: clamp(2.2rem, 5vw, 3.5rem);
+  letter-spacing: -0.02em;
+}
+
+.lagom-meta-grid {
+  display: grid;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.lagom-meta-grid p {
+  margin: 0;
+  display: grid;
+  gap: 0.2rem;
+}
+
+.lagom-meta-grid strong {
+  font-size: 0.82rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #6b7280;
+}
+
+.lagom-meta-grid span {
+  color: #111111;
+  line-height: 1.45;
+}
+
+.lagom-lead {
+  margin: 0;
+  font-size: 1.06rem;
+  line-height: 1.75;
+  color: #374151;
+}
+
+.lagom-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+  margin-bottom: 1.1rem;
+}
+
+.lagom-tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.35rem 0.75rem;
+  border: 1px solid #d1d5db;
+  border-radius: 999px;
+  font-size: 0.82rem;
+  color: #374151;
+  background: #ffffff;
+}
+
+.lagom-carousel-wrap {
+  position: relative;
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 0;
+}
+
+.lagom-carousel-stage {
+  display: grid;
+  grid-template-columns: 0.9fr 1.3fr 0.9fr;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.lagom-carousel-card {
+  margin: 0;
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid #e5e7eb;
+  background: #f8fafc;
+  transition: transform 0.2s ease, opacity 0.2s ease, filter 0.2s ease;
+}
+
+.lagom-carousel-card-side {
+  transform: scale(0.88);
+  opacity: 0.68;
+  filter: blur(2px);
+}
+
+.lagom-carousel-card-center {
+  transform: scale(1.08);
+  filter: blur(0);
+}
+
+.lagom-carousel-image {
+  width: 100%;
+  height: 320px;
+  display: block;
+  object-fit: cover;
+  object-position: center;
+}
+
+.lagom-carousel-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 2.2rem;
+  height: 2.2rem;
+  border-radius: 999px;
+  border: 1px solid #d1d5db;
+  background: #ffffff;
+  color: #111111;
+  font-size: 1.05rem;
+  line-height: 1;
+  cursor: pointer;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.lagom-carousel-arrow:hover {
+  background: #f8fafc;
+  border-color: #9ca3af;
+}
+
+.lagom-carousel-arrow-left {
+  left: 31%;
+  z-index: 3;
+}
+
+.lagom-carousel-arrow-right {
+  right: 31%;
+  z-index: 3;
+}
+
+.lagom-info-columns {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.8rem;
+  margin-top: 0.6rem;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 1.35rem 1rem;
+}
+
+.lagom-info-card {
+  padding: 0.35rem 1rem;
+}
+
+.lagom-info-card:not(:last-child) {
+  border-right: 1px solid #e5e7eb;
+}
+
+.lagom-info-card h2 {
+  margin: 0 0 0.5rem;
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #6b7280;
+}
+
+.lagom-info-card p {
+  margin: 0;
+  font-size: 0.93rem;
+  line-height: 1.55;
+  color: #111111;
+}
+
+.lagom-info-tools {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: 0.93rem;
+  line-height: 1.55;
+  color: #111111;
+}
+
+.lagom-project-layout {
+  display: grid;
+  gap: 1.6rem;
+  align-items: start;
+}
+
+.lagom-project-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.lagom-project-nav a {
+  font-size: 0.95rem;
+  line-height: 1.35;
+  color: #6b7280;
+}
+
+.lagom-project-nav a:hover {
+  color: #111111;
+}
+
+.lagom-project-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.lagom-heading-section {
+  padding: 0.2rem 0;
+}
+
+.lagom-context-box {
+  margin: 0;
+  padding: 1.4rem;
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+  background: #f9fafb;
+}
+
+.lagom-context-box h2,
+.lagom-card h2,
+.lagom-reflection h2 {
+  margin: 0 0 0.6rem;
+  font-size: 1.35rem;
+}
+
+.lagom-context-box p,
+.lagom-card p {
+  margin: 0;
+  line-height: 1.75;
+  color: #374151;
+}
+
+.lagom-two-col {
+  display: grid;
+  gap: 1rem;
+}
+
+.lagom-content-grid {
+  display: grid;
+  gap: 1rem;
+}
+
+.lagom-card {
+  padding: 1.2rem;
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+  background: #ffffff;
+}
+
+.lagom-highlight {
+  margin-top: 0.95rem;
+  font-weight: 600;
+  color: #111111;
+}
+
+.lagom-list {
+  margin: 0;
+  padding-left: 1.1rem;
+  color: #374151;
+  line-height: 1.75;
+}
+
+.lagom-process-image {
+  width: 100%;
+  height: auto;
+  margin-top: 1rem;
+  border-radius: 12px;
+  border: 1px solid #e5e7eb;
+  display: block;
+}
+
+.lagom-reflection h3 {
+  margin: 0 0 0.6rem;
+  font-size: 1.05rem;
+}
+
+.lagom-cta-block {
+  margin-top: 0.4rem;
+}
+
+.lagom-cta-link {
+  padding: 0.8rem 1.15rem;
+  font-weight: 600;
+}
+
 .project-pdf-block {
   margin: 0.5rem 0 1.5rem;
 }
@@ -688,6 +986,80 @@ p {
 .pdf-link:hover {
   border-color: #9ca3af;
   background: #f9fafb;
+}
+
+@media (min-width: 900px) {
+  .lagom-meta-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1rem;
+  }
+
+  .lagom-two-col {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .lagom-content-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .lagom-card-wide {
+    grid-column: 1 / -1;
+  }
+
+  .lagom-project-layout {
+    grid-template-columns: 180px minmax(0, 1fr);
+    gap: 2rem;
+  }
+
+  .lagom-project-nav {
+    position: sticky;
+    top: 6rem;
+  }
+}
+
+@media (max-width: 760px) {
+  .lagom-carousel-wrap {
+    padding: 0;
+  }
+
+  .lagom-carousel-stage {
+    grid-template-columns: 0.8fr 1fr 0.8fr;
+  }
+
+  .lagom-carousel-arrow {
+    width: 2rem;
+    height: 2rem;
+  }
+
+  .lagom-carousel-image {
+    height: 240px;
+  }
+
+  .lagom-carousel-arrow-left {
+    left: 22%;
+  }
+
+  .lagom-carousel-arrow-right {
+    right: 22%;
+  }
+
+  .lagom-info-columns {
+    grid-template-columns: 1fr;
+  }
+
+  .lagom-info-card {
+    padding: 0.2rem 0;
+  }
+
+  .lagom-info-card:not(:last-child) {
+    border-right: 0;
+    border-bottom: 1px solid #e5e7eb;
+    padding-bottom: 0.7rem;
+  }
+
+  .lagom-project-nav {
+    gap: 0.45rem;
+  }
 }
 
 .visual-section-title {
