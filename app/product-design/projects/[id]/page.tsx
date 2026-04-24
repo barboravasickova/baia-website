@@ -14,10 +14,20 @@ export default async function ProductDesignProjectDetailPage({ params }: Project
   if (!project) {
     notFound();
   }
+  const breadcrumbCurrentLabel = project.id === "lagom-app" ? "Lagom App" : project.name;
 
   return (
     <main className="page">
-      <LanguageSwitch locale="cz" backHref="/product-design" />
+      <LanguageSwitch
+        locale="cz"
+        backHref="/product-design"
+        showBrandTrail
+        brandTrailCurrentLabel={breadcrumbCurrentLabel}
+        projectsHref="/product-design/projekty"
+        processHref="/product-design/proces"
+        aboutHref="/product-design/o-mne"
+        includeProjectsInTrail
+      />
 
       {project.id === "lagom-app" ? (
         <article className="lagom-case-study">

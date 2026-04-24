@@ -38,7 +38,11 @@ export default function ProjectCard({ project, detailHref, detailLabel, reverse 
           )}
         </div>
         <div className="project-card-body">
-          <h3 className="project-card-title">{project.name}</h3>
+          <h3 className="project-card-title">
+            <Link href={detailHref} className="project-card-title-link">
+              {project.name}
+            </Link>
+          </h3>
           <p className="project-type">{project.type}</p>
           <p className="project-card-summary">{project.summary}</p>
           <Link href={detailHref} className="project-card-cta">

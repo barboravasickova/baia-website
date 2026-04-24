@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 const steps = [
   {
     number: "01",
@@ -42,6 +44,11 @@ export default function MyProcess() {
             <p className="my-process-item-text">{step.description}</p>
           </article>
         ))}
+      </div>
+      <div className="my-process-cta-wrap">
+        <Link href="/product-design/proces" className="hero-cta">
+          Více o mém procesu
+        </Link>
       </div>
     </section>
   );

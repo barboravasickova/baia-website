@@ -4,11 +4,12 @@ import { useMemo, useState } from "react";
 import Image from "next/image";
 import lagomPhoneHand from "@/images/lagom-phone-hand.jpg";
 import lagomIphone from "@/images/lagom_iphone.jpg";
+import lagomAktivita from "@/images/lagom-aktivita.jpg";
 
 const slides = [
   { src: lagomPhoneHand, alt: "Lagom App náhled v ruce" },
   { src: lagomIphone, alt: "Lagom App náhled rozhraní" },
-  { src: lagomPhoneHand, alt: "Lagom App detail mobilního mockupu" }
+  { src: lagomAktivita, alt: "Lagom App náhled obrazovky aktivit" }
 ];
 
 export default function LagomCarousel() {

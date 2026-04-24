@@ -19,7 +19,7 @@ export default function HomePage() {
       <Link href="/product-design" className={`split-panel split-panel-left ${leftFont.className}`}>
         <span className="split-panel-inner">
           <h1 className="split-title">Barbora Vašíčková</h1>
-          <p className="split-subtitle">UX / Product Design</p>
+          <p className="split-subtitle">Product Design</p>
         </span>
       </Link>
 
