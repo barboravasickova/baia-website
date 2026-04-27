@@ -16,7 +16,13 @@ export default function About({ title, text }: AboutProps) {
               vasickovabara@gmail.com
             </h3>
             <p className="contact-final-subtitle">
-              Ráda proberu nové projekty, UX konzultace nebo spolupráci pod značkou BAIA.
+              Ráda proberu nové projekty, UX konzultace
+              <br />
+              nebo spolupráci na ilustracích pod mou značkou{" "}
+              <Link href="/illustration" className="contact-final-inline-link">
+                BAIA
+              </Link>
+              .
             </p>
             <div className="contact-final-cta-wrap">
               <Link href="/product-design/kontakt" className="hero-cta">

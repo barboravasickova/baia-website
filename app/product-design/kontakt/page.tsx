@@ -1,3 +1,4 @@
+import Link from "next/link";
 import LanguageSwitch from "@/components/LanguageSwitch";
 
 export default function ProductDesignContactPage() {
@@ -18,7 +19,11 @@ export default function ProductDesignContactPage() {
           vasickovabara@gmail.com
         </h1>
         <p className="contact-final-subtitle">
-          Ráda proberu nové projekty, UX konzultace nebo spolupráci pod značkou BAIA.
+          Ráda proberu nové projekty, UX konzultace nebo spolupráci pod značkou{" "}
+          <Link href="/illustration" className="contact-final-inline-link">
+            BAIA
+          </Link>
+          .
         </p>
         <div className="contact-final-cta-wrap">
           <a href="mailto:vasickovabara@gmail.com" className="hero-cta">

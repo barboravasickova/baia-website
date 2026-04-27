@@ -90,14 +90,33 @@ a {
 @media (max-width: 840px) {
   .split-landing {
     grid-template-columns: 1fr;
-    height: 100svh;
+    min-height: 100dvh;
+    height: 100dvh;
+    grid-template-rows: repeat(2, minmax(0, 1fr));
     overflow: hidden;
   }
 
   .split-panel {
     min-height: 0;
-    height: 50svh;
-    padding: 1.75rem 1.25rem;
+    height: auto;
+    padding: 1.25rem 1rem;
+  }
+
+  .split-panel-inner {
+    max-width: 22rem;
+  }
+
+  .split-title {
+    font-size: clamp(1.75rem, 8vw, 2.3rem);
+  }
+
+  .split-subtitle {
+    margin-top: 0.55rem;
+    font-size: clamp(0.95rem, 4vw, 1.1rem);
+  }
+
+  .split-logo {
+    width: min(56vw, 250px);
   }
 }
 
@@ -661,7 +680,7 @@ p {
 }
 
 .contact-section {
-  padding: 2rem 0 6rem;
+  padding: 6rem 0 2rem;
 }
 
 .contact-section-inner {
@@ -734,6 +753,16 @@ p {
   margin-right: auto;
 }
 
+.contact-final-inline-link {
+  text-decoration: underline;
+  text-decoration-thickness: 1.2px;
+  text-underline-offset: 3px;
+}
+
+.contact-final-inline-link:hover {
+  color: #111111;
+}
+
 .contact-final-cta-wrap {
   margin-top: 1.2rem;
 }
@@ -778,7 +807,7 @@ p {
 }
 
 .about-me-title {
-  margin: 0 0 2.6rem;
+  margin: 0 0 1rem;
   font-size: clamp(2rem, 3.8vw, 2.7rem);
   font-weight: 800;
   letter-spacing: -0.02em;
@@ -793,7 +822,7 @@ p {
 }
 
 .about-me-subtitle {
-  margin: 0 0 2rem;
+  margin: 0 0 1rem;
   font-size: 1rem;
   font-weight: 700;
   letter-spacing: 0.02em;

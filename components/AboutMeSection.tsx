@@ -34,9 +34,8 @@ export default function AboutMeSection() {
         Ahoj, jsem Bára.
       </h2>
       <p className="about-me-intro">
-        Baví mě věci zjednodušovat. Nejvíce mi dává smysl práce, při které se mi podaří digitální
-        produkt navrhnout tak, aby mu lidé rozuměli a zbytečně u něj netápali. Mou rolí je
-        odstraňovat bariéry, které uživatele brzdí nebo matou.
+        Baví mě věci zjednodušovat – nejvíce mi dává smysl práce, při které se mi podaří digitální
+        produkty navrhnout tak, aby jim lidé  rozuměli a zbytečně u nich netápali. 
       </p>
       <p className="about-me-subtitle">Jaký je můj postup při navrhování produktů?</p>
 
