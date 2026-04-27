@@ -1,8 +1,8 @@
 import About from "@/components/About";
+import AboutMeSection from "@/components/AboutMeSection";
 import Contact from "@/components/Contact";
 import Hero from "@/components/Hero";
 import LanguageSwitch from "@/components/LanguageSwitch";
-import MyProcess from "@/components/MyProcess";
 import Projects from "@/components/Projects";
 import { contentByLocale } from "@/data/projects";
 import Link from "next/link";
@@ -23,7 +23,7 @@ export default function ProductDesignPage() {
         identityName={content.hero.identityName}
         supporting={content.hero.supporting}
         statusLabel="Otevřená novým projektům"
-        ctaLabel="↓"
+        ctaLabel="Přejít na projekty"
         ctaHref={content.hero.ctaHref}
         ctaVariant="arrow"
       />
@@ -35,11 +35,11 @@ export default function ProductDesignPage() {
         detailBasePath="/product-design"
       />
       <div className="projects-more-cta-wrap">
-        <Link href="/illustration" className="hero-cta">
-          Projekty
+        <Link href="/product-design/projekty" className="hero-cta">
+          Všechny projekty
         </Link>
       </div>
-      <MyProcess />
+      <AboutMeSection />
       <About title={content.about.title} text={content.about.text} />
       <Contact
         title={content.contact.title}

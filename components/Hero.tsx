@@ -36,8 +36,30 @@ export default function Hero({
         ) : null}
 
         <div className="hero-cta-group">
-          <a className={ctaVariant === "arrow" ? "hero-cta-arrow" : "hero-cta"} href={ctaHref}>
-            {ctaLabel}
+          <a
+            className={ctaVariant === "arrow" ? "hero-cta-arrow" : "hero-cta"}
+            href={ctaHref}
+            aria-label={ctaVariant === "arrow" ? ctaLabel : undefined}
+          >
+            {ctaVariant === "arrow" ? (
+              <svg
+                className="hero-cta-arrow-icon"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                aria-hidden="true"
+              >
+                <path
+                  d="M12 5V19M12 19L6 13M12 19L18 13"
+                  stroke="currentColor"
+                  strokeWidth="1.8"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+            ) : (
+              ctaLabel
+            )}
           </a>
           {secondaryCtaLabel && secondaryCtaHref ? (
             <a className="hero-cta" href={secondaryCtaHref}>

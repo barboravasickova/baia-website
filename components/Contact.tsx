@@ -7,15 +7,7 @@ type ContactProps = {
 
 export default function Contact({ title, subtitle, email, social }: ContactProps) {
   if (title === "Napište mi") {
-    return (
-      <section id="footer" className="contact-final-section">
-        <div className="contact-final-inner">
-          <p className="contact-final-footnote">
-            © 2026 Barbora Vašíčková • Navrženo v Brně a postaveno na Next.js
-          </p>
-        </div>
-      </section>
-    );
+    return null;
   }
 
   return (

@@ -18,32 +18,32 @@ export default function LanguageSwitch({
   showBrandTrail = false,
   brandTrailCurrentLabel,
   projectsHref,
-  processHref,
   aboutHref,
   includeProjectsInTrail = false
 }: LanguageSwitchProps) {
   const resolvedProjectsHref = projectsHref ?? (locale === "cz" ? "#projekty" : "#projects");
-  const resolvedProcessHref = processHref ?? "#process";
   const resolvedAboutHref = aboutHref ?? (showBrandTrail && locale === "cz" ? "/product-design/o-mne" : "#about");
   const showSignpostLabel = backHref === "/";
   const sectionLinks =
     locale === "cz"
       ? [
           { label: "Projekty", href: resolvedProjectsHref },
-          { label: "Proces", href: resolvedProcessHref },
           { label: "O mně", href: resolvedAboutHref },
           { label: "Kontakt", href: "#contact" }
         ]
       : [
           { label: "Home", href: "#home" },
           { label: "Projects", href: resolvedProjectsHref },
-          { label: "Process", href: resolvedProcessHref },
           { label: "About", href: resolvedAboutHref },
           { label: "Contact", href: "#contact" }
         ];
 
   return (
-    <nav className="top-nav" aria-label={locale === "cz" ? "Hlavní navigace" : "Main navigation"}>
+    <nav
+      id="top-navigation"
+      className="top-nav"
+      aria-label={locale === "cz" ? "Hlavní navigace" : "Main navigation"}
+    >
       {showBrandTrail ? (
         <div className="top-nav-brand-trail" aria-label="Navigační cesta">
           <a href="/" className="top-nav-brand-badge" aria-label="Domů">

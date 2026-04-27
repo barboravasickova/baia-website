@@ -22,7 +22,7 @@ export default function ProjectCard({ project, detailHref, detailLabel, reverse 
   const previewImage = previewImageById[project.id];
 
   return (
-    <article className={`project-card ${reverse ? "project-card-reverse" : ""}`}>
+    <Link href={detailHref} className={`project-card ${reverse ? "project-card-reverse" : ""}`}>
       <div className="project-card-layout">
         <div className="project-card-media">
           {previewImage ? (
@@ -38,21 +38,17 @@ export default function ProjectCard({ project, detailHref, detailLabel, reverse 
           )}
         </div>
         <div className="project-card-body">
-          <h3 className="project-card-title">
-            <Link href={detailHref} className="project-card-title-link">
-              {project.name}
-            </Link>
-          </h3>
+          <h3 className="project-card-title">{project.name}</h3>
           <p className="project-type">{project.type}</p>
           <p className="project-card-summary">{project.summary}</p>
-          <Link href={detailHref} className="project-card-cta">
+          <span className="project-card-cta">
             <span>{detailLabel}</span>
             <span className="project-card-cta-arrow" aria-hidden>
               →
             </span>
-          </Link>
+          </span>
         </div>
       </div>
-    </article>
+    </Link>
   );
 }

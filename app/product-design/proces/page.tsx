@@ -1,18 +1,18 @@
+import AboutMeSection from "@/components/AboutMeSection";
 import LanguageSwitch from "@/components/LanguageSwitch";
-import MyProcess from "@/components/MyProcess";
 
-export default function ProductDesignProcessPage() {
+export default function ProductDesignAboutPage() {
   return (
     <main className="page">
       <LanguageSwitch
         locale="cz"
         showBrandTrail
-        brandTrailCurrentLabel="Proces"
+        brandTrailCurrentLabel="O mně"
         projectsHref="/product-design/projekty"
         processHref="/product-design/proces"
         aboutHref="/product-design/o-mne"
       />
-      <MyProcess />
+      <AboutMeSection />
     </main>
   );
 }
