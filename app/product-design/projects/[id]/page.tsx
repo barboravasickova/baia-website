@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Image, { type StaticImageData } from "next/image";
 import Link from "next/link";
@@ -26,6 +27,21 @@ import psochazkyLoFi from "@/images/psochazky-lo-fi.jpg";
 type ProjectDetailPageProps = {
   params: Promise<{ id: string }>;
 };
+
+export async function generateMetadata({ params }: ProjectDetailPageProps): Promise<Metadata> {
+  const { id } = await params;
+  const project = getProjectByLocale("cz", id);
+
+  if (!project) {
+    return {
+      title: "Projekt nenalezen"
+    };
+  }
+
+  return {
+    title: `${project.name} - Product Design`
+  };
+}
 
 type ProjectConfig = {
   title: string;
