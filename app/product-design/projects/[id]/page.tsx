@@ -4,6 +4,7 @@ import Link from "next/link";
 import LanguageSwitch from "@/components/LanguageSwitch";
 import LagomCarousel from "@/components/LagomCarousel";
 import LagomProjectNav from "@/components/LagomProjectNav";
+import PsochazkyCarousel from "@/components/PsochazkyCarousel";
 import ZoomableImage from "@/components/ZoomableImage";
 import { contentByLocale, getProjectByLocale } from "@/data/projects";
 import lagomPhoneHand from "@/images/lagom-phone-hand.jpg";
@@ -13,7 +14,8 @@ import lagomLoFi from "@/images/lagom-lo-fi.jpg";
 import homepageLagom from "@/images/homepage-lagom.jpg";
 import aktivitaLagom from "@/images/aktivita-lagom.jpg";
 import komunitaLagom from "@/images/komunita-lagom.jpg";
-import psochazkyNotebook from "@/images/psochazky_notebook.jpg";
+import psochazkyFullPage from "@/images/psochazky_full_page.jpg";
+import psochazkyPreview from "@/images/psochazky_nahled.png";
 
 type ProjectDetailPageProps = {
   params: Promise<{ id: string }>;
@@ -26,7 +28,43 @@ export default async function ProductDesignProjectDetailPage({ params }: Project
   if (!project) {
     notFound();
   }
-  const breadcrumbCurrentLabel = project.id === "lagom-app" ? "Lagom App" : project.name;
+  const isLagomProject = project.id === "lagom-app";
+  const isPsochazkyProject = project.id === "psochazky";
+  const breadcrumbCurrentLabel = isLagomProject ? "Lagom App" : project.name;
+  const projectsOrder = ["lagom-app", "psochazky", "kytky-z-melatina"] as const;
+  const currentProjectOrderIndex = projectsOrder.indexOf(project.id as (typeof projectsOrder)[number]);
+  const nextProjectId =
+    currentProjectOrderIndex !== -1 && currentProjectOrderIndex < projectsOrder.length - 1
+      ? projectsOrder[currentProjectOrderIndex + 1]
+      : null;
+  const nextProject = nextProjectId
+    ? contentByLocale.cz.projects.find((projectItem) => projectItem.id === nextProjectId)
+    : null;
+  const getSectionText = (heading: string) =>
+    project.sections.find((section) => section.heading.toLowerCase() === heading.toLowerCase())?.content;
+  const renderSectionParagraphs = (heading: string) => {
+    const sectionContent = getSectionText(heading);
+    if (!sectionContent) {
+      return null;
+    }
+
+    return sectionContent
+      .split("\n\n")
+      .map((paragraph) => paragraph.trim())
+      .filter(Boolean)
+      .map((paragraph) => <p key={`${heading}-${paragraph.slice(0, 24)}`}>{paragraph}</p>);
+  };
+  const nextProjectHeadlineById: Partial<Record<(typeof projectsOrder)[number], string>> = {
+    "lagom-app": "Lagom: Pohyb v rovnováze",
+    psochazky: "Psocházky: Online vizitka pro psí školu",
+    "kytky-z-melatina": "Kytky z Melatína: Digitální showroom a vizuální identita"
+  };
+  const getNextProjectPreview = (projectId: string) => {
+    if (projectId === "psochazky") {
+      return psochazkyPreview;
+    }
+    return contentByLocale.cz.projects.find((projectItem) => projectItem.id === projectId)?.previewImage;
+  };
 
   return (
     <main className="page">
@@ -41,7 +79,7 @@ export default async function ProductDesignProjectDetailPage({ params }: Project
         includeProjectsInTrail
       />
 
-      {project.id === "lagom-app" ? (
+      {isLagomProject ? (
         <article className="lagom-case-study">
           <section className="lagom-hero">
             <div className="lagom-hero-content">
@@ -238,42 +276,225 @@ export default async function ProductDesignProjectDetailPage({ params }: Project
               </div>
             </div>
           </div>
-          <section className="lagom-next-project" aria-labelledby="lagom-next-project-heading">
-            <p className="lagom-next-project-eyebrow">PROJEKTY</p>
-            <h2 id="lagom-next-project-heading" className="lagom-next-project-title">
-              Další projekt
-            </h2>
-            <Link
-              href="/product-design/projects/psochazky"
-              className="lagom-next-project-card"
-              aria-label="Otevřít detail projektu Psocházky"
-            >
-              <div className="lagom-next-project-content">
-                <p className="lagom-next-project-kicker">PSOCHÁZKY WEB</p>
-                <h3 className="lagom-next-project-headline">Psocházky: Online vizitka pro psí školu</h3>
-                <div className="lagom-tags" aria-label="Role projektu Psocházky">
-                  <span className="lagom-tag">UX design</span>
-                  <span className="lagom-tag">UI design</span>
-                  <span className="lagom-tag">Web design</span>
-                </div>
-                <div className="lagom-next-project-divider" aria-hidden />
-                <span className="project-card-cta">
-                  <span>Detail projektu</span>
-                  <span className="project-card-cta-arrow" aria-hidden>
-                    →
+          {nextProject ? (
+            <section className="lagom-next-project" aria-labelledby="lagom-next-project-heading">
+              <p className="lagom-next-project-eyebrow">PROJEKTY</p>
+              <h2 id="lagom-next-project-heading" className="lagom-next-project-title">
+                Další projekt
+              </h2>
+              <Link
+                href={`/product-design/projects/${nextProject.id}`}
+                className="lagom-next-project-card"
+                aria-label={`Otevřít detail projektu ${nextProject.name}`}
+              >
+                <div className="lagom-next-project-content">
+                  <p className="lagom-next-project-kicker">{nextProject.name.toUpperCase()}</p>
+                  <h3 className="lagom-next-project-headline">
+                    {nextProjectHeadlineById[nextProject.id as (typeof projectsOrder)[number]] ?? nextProject.name}
+                  </h3>
+                  <div className="lagom-tags" aria-label={`Role projektu ${nextProject.name}`}>
+                    <span className="lagom-tag">{nextProject.type}</span>
+                  </div>
+                  <div className="lagom-next-project-divider" aria-hidden />
+                  <span className="project-card-cta">
+                    <span>Detail projektu</span>
+                    <span className="project-card-cta-arrow" aria-hidden>
+                      →
+                    </span>
                   </span>
-                </span>
+                </div>
+                <div className="lagom-next-project-media" aria-hidden>
+                  <Image
+                    src={getNextProjectPreview(nextProject.id) ?? nextProject.previewImage}
+                    alt={nextProject.previewAlt}
+                    className="lagom-next-project-image"
+                    sizes="(min-width: 900px) 40vw, 100vw"
+                    width={1280}
+                    height={920}
+                  />
+                </div>
+              </Link>
+            </section>
+          ) : null}
+        </article>
+      ) : isPsochazkyProject ? (
+        <article className="lagom-case-study">
+          <section className="lagom-hero">
+            <div className="lagom-hero-content">
+              <p className="lagom-eyebrow">Psocházky</p>
+              <h1 className="lagom-title">Psocházky: Online vizitka pro psí školu</h1>
+              <div className="lagom-tags" aria-label="Project tags">
+                <span className="lagom-tag">Logo Design</span>
+                <span className="lagom-tag">UX Design</span>
+                <span className="lagom-tag">UI Design</span>
+                <span className="lagom-tag">Web Design</span>
+                <span className="lagom-tag">Service Website</span>
               </div>
-              <div className="lagom-next-project-media" aria-hidden>
-                <Image
-                  src={psochazkyNotebook}
-                  alt="Psocházky - notebook"
-                  className="lagom-next-project-image"
-                  sizes="(min-width: 900px) 40vw, 100vw"
-                />
+              <p className="lagom-lead">{project.summary}</p>
+            </div>
+            <PsochazkyCarousel />
+            <section className="lagom-info-columns" aria-label="Shrnutí projektu Psocházky">
+              <div className="lagom-info-card">
+                <h2>ROLE</h2>
+                <p>
+                  Logo design
+                  <br />
+                  UX/UI Design
+                  <br />
+                  Struktura obsahu
+                  <br />
+                  Realizace
+                </p>
               </div>
-            </Link>
+              <div className="lagom-info-card">
+                <h2>NÁSTROJE</h2>
+                <ul className="lagom-info-tools">
+                  <li>Adobe Illustrator</li>
+                  <li>Figma</li>
+                  <li>Cursor</li>
+                </ul>
+              </div>
+              <div className="lagom-info-card">
+                <h2>TIMELINE</h2>
+                <p>leden - březen 2026</p>
+              </div>
+              <div className="lagom-info-card">
+                <h2>KONTEXT</h2>
+                <p>
+                  Projekt vznikl jako kompletní realizace webu na klíč — od definice služby až po
+                  spuštění na doméně. 
+                </p>
+              </div>
+            </section>
           </section>
+
+          <div className="lagom-project-layout">
+            <LagomProjectNav />
+
+            <div className="lagom-project-content">
+              <section id="o-projektu" className="lagom-heading-section">
+                <h2>O projektu</h2>
+                {renderSectionParagraphs("Overview")}
+                <ZoomableImage
+                  src={psochazkyFullPage}
+                  alt="Psocházky - detail webu"
+                  className="lagom-process-image lagom-project-intro-image"
+                  ariaLabel="Zvětšit obrázek projektu Psocházky"
+                  width={1400}
+                  height={980}
+                />
+              </section>
+
+              <section id="research" className="lagom-heading-section">
+                <h2>Research</h2>
+                <p>
+                  Majitelé reaktivních psů přicházejí na web ve stresu a často mají za sebou
+                  negativní zkušenosti. Hledají rychlé pochopení problému a konkrétní řešení, ne
+                  obecné informace.
+                </p>
+                <p>Zásadní bylo:</p>
+                <ul className="lagom-list">
+                  <li>jasně definovat, pro koho je služba vhodná</li>
+                  <li>srozumitelně vysvětlit rozdíl mezi venčením a tréninkem</li>
+                  <li>odstranit obavy z odsouzení nebo selhání</li>
+                </ul>
+                <p className="lagom-list-followup">
+                  Web proto musel fungovat nejen informačně, ale i jako první krok ke zklidnění a
+                  získání důvěry.
+                </p>
+              </section>
+
+              <section id="idea" className="lagom-heading-section">
+                <h2>Idea</h2>
+                <p>
+                  Hlavním motivem se stal klid, kontrola a bezpečí.
+                </p>
+                <p>
+                  Chtěla jsem vytvořit prostředí, které nepůsobí jako výcvikový tlak, ale jako
+                  průvodce. Web se stává místem, kde uživatel rychle pochopí, že jeho situace má
+                  řešení.
+                </p>
+                <p>
+                  Struktura webu je navržená tak, aby odpovídala reálným situacím uživatelů, ne jen
+                  výčtu služeb. Důraz je kladen na postupné vedení k akci bez zahlcení informacemi.
+                </p>
+              </section>
+
+              <section id="design" className="lagom-heading-section">
+                <h2>Design</h2>
+                <p>
+                  Vizuální styl vychází z přirozeného prostředí, ve kterém trénink probíhá. Tlumené
+                  barvy, dostatek prostoru a jednoduchá typografie podporují pocit klidu a
+                  přehlednosti.
+                </p>
+                <p>UX/UI řešení se zaměřuje na:</p>
+                <ul className="lagom-list">
+                  <li>jasné rozdělení služeb (skupinové procházky vs. individuální lekce)</li>
+                  <li>rychlou orientaci v obsahu</li>
+                  <li>minimalizaci kroků k poptávce</li>
+                </ul>
+                <p className="lagom-list-followup">
+                  Web je navržen mobile-first — s ohledem na to, že uživatelé často hledají
+                  informace přímo během procházek.
+                </p>
+              </section>
+
+              <section id="reflexe" className="lagom-heading-section">
+                <h2>Reflexe</h2>
+                <p>
+                  Projekt pro mě byl důležitý v pochopení, jak pracovat s emočně náročným tématem.
+                  Nestačilo správně navrhnout strukturu — klíčové bylo pochopit, v jaké situaci se
+                  uživatel nachází.
+                </p>
+                <p>
+                  Naučila jsem se, že u služeb tohoto typu hraje zásadní roli nejen použitelnost,
+                  ale i způsob komunikace. To, jak web působí, může rozhodnout o tom, jestli
+                  uživatel udělá první krok, nebo odejde.
+                </p>
+              </section>
+            </div>
+          </div>
+
+          {nextProject ? (
+            <section className="lagom-next-project" aria-labelledby="lagom-next-project-heading">
+              <p className="lagom-next-project-eyebrow">PROJEKTY</p>
+              <h2 id="lagom-next-project-heading" className="lagom-next-project-title">
+                Další projekt
+              </h2>
+              <Link
+                href={`/product-design/projects/${nextProject.id}`}
+                className="lagom-next-project-card"
+                aria-label={`Otevřít detail projektu ${nextProject.name}`}
+              >
+                <div className="lagom-next-project-content">
+                  <p className="lagom-next-project-kicker">{nextProject.name.toUpperCase()}</p>
+                  <h3 className="lagom-next-project-headline">
+                    {nextProjectHeadlineById[nextProject.id as (typeof projectsOrder)[number]] ?? nextProject.name}
+                  </h3>
+                  <div className="lagom-tags" aria-label={`Role projektu ${nextProject.name}`}>
+                    <span className="lagom-tag">{nextProject.type}</span>
+                  </div>
+                  <div className="lagom-next-project-divider" aria-hidden />
+                  <span className="project-card-cta">
+                    <span>Detail projektu</span>
+                    <span className="project-card-cta-arrow" aria-hidden>
+                      →
+                    </span>
+                  </span>
+                </div>
+                <div className="lagom-next-project-media" aria-hidden>
+                  <Image
+                    src={getNextProjectPreview(nextProject.id) ?? nextProject.previewImage}
+                    alt={nextProject.previewAlt}
+                    className="lagom-next-project-image"
+                    sizes="(min-width: 900px) 40vw, 100vw"
+                    width={1280}
+                    height={920}
+                  />
+                </div>
+              </Link>
+            </section>
+          ) : null}
         </article>
       ) : (
         <section className="project-detail">

@@ -17,7 +17,7 @@ export default function ProjectCard({ project, detailHref, detailLabel, reverse 
   const previewImageById: Partial<Record<Project["id"], typeof psochazkyPreview>> = {
     "lagom-app": lagomPreview,
     psochazky: psochazkyPreview,
-    "atelier-flora": atelierFloraPreview
+    "kytky-z-melatina": atelierFloraPreview
   };
   const previewImage = previewImageById[project.id];
 

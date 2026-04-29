@@ -23,7 +23,7 @@ export default function SiteFooter() {
             <nav className="site-footer-nav" aria-label="Navigace Product design">
               <Link href="/product-design/projekty">Projekty</Link>
               <Link href="/product-design/o-mne">O mně</Link>
-              <Link href="/product-design#contact">Kontakt</Link>
+              <Link href="/product-design/kontakt">Kontakt</Link>
             </nav>
           </>
         ) : (

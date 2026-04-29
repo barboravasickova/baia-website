@@ -80,14 +80,14 @@ export const contentByLocale: Record<Locale, SiteContent> = {
         name: "Psocházky",
         type: "UX / Web Design",
         summary:
-          "Webová prezentace pro trenérku psů se zaměřením na optimalizaci klientského servisu. Návrh řeší zjednodušení komunikačních kanálů a vytvoření přehledného systému pro poptávku služeb a rezervace.",
+          "Webová prezentace pro trenérku psů zaměřená na práci s reaktivními a nejistými psy. Cílem bylo vytvořit prostředí, které snižuje stres už při prvním kontaktu a zároveň efektivně vede uživatele k poptávce služby.",
         previewImage: "/projects/preview-psochazky.svg",
         previewAlt: "Psocházky – náhled webu",
         sections: [
           {
             heading: "Overview",
             content:
-              "Psocházky\n\nWeb pro trenérku psů zaměřený na zjednodušení komunikace s klienty\n\nMoje role: UX / UI design, návrh struktury, realizace webu\nCíl: vytvořit přehledné místo, které vysvětluje službu a vede uživatele ke kontaktu"
+              "Psocházky jsou služba zaměřená na socializaci a trénink reaktivních nebo nejistých psů v reálném prostředí. Projekt vznikl jako digitální zázemí pro trenérku Šárku, která pomáhá majitelům zvládat náročné situace při každodenních procházkách.\n\nCílem bylo vytvořit web, který jasně vysvětlí princip tréninku „v pohybu“ a zároveň odliší službu od běžného venčení psů nebo klasických cvičišť. Důležitou součástí bylo také nastavení přehledné cesty k poptávce a rezervaci služeb."
           },
           {
             heading: "Problém",
@@ -192,13 +192,13 @@ export const contentByLocale: Record<Locale, SiteContent> = {
         ]
       },
       {
-        id: "atelier-flora",
-        name: "Atelier Flora",
+        id: "kytky-z-melatina",
+        name: "Kytky z Melatína",
         type: "UX/UI & Visual Identity",
         summary:
           "Digitální showroom a vizuální identita pro zakázkovou výrobu suchých vazeb. Projekt zaměřený na budování značky od základu a zefektivnění poptávkového procesu pro unikátní produkty na míru.",
         previewImage: "/projects/preview-coming-soon.svg",
-        previewAlt: "Atelier Flora – náhled projektu",
+        previewAlt: "Kytky z Melatína – náhled projektu",
         sections: []
       }
     ],

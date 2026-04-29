@@ -19,6 +19,16 @@ body {
   overflow-x: clip;
 }
 
+.app-shell {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.app-shell-main {
+  flex: 1;
+}
+
 a {
   color: inherit;
   text-decoration: none;
@@ -124,6 +134,10 @@ a {
   max-width: 1160px;
   margin: 0 auto;
   padding: 0rem 1.25rem 4rem;
+}
+
+.page-footer-flush {
+  padding-bottom: 0;
 }
 
 .top-nav {
@@ -417,6 +431,14 @@ p {
   margin-top: 0.6rem;
 }
 
+.product-design-subpage-content {
+  margin-top: 0.6rem;
+}
+
+.product-design-subpage-content > :first-child {
+  margin-top: 0;
+}
+
 .projects-overview-title {
   margin: 0 0 1.8rem;
   font-size: clamp(2rem, 3.8vw, 2.7rem);
@@ -690,7 +712,6 @@ p {
 }
 
 .contact-section-content {
-  margin-top: 0.2rem;
   text-align: center;
 }
 
@@ -1415,6 +1436,10 @@ p {
   line-height: 1.75;
 }
 
+.lagom-list-followup {
+  margin-top: 1.35rem;
+}
+
 .lagom-process-image {
   width: 100%;
   height: auto;
@@ -1889,6 +1914,17 @@ p {
   text-transform: uppercase;
 }
 
+.site-footer-product-design .site-footer-inner {
+  min-height: 64px;
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+}
+
+.site-footer-product-design .site-footer-inner > span,
+.site-footer-product-design .site-footer-nav {
+  white-space: nowrap;
+}
+
 .site-footer-inner {
   max-width: 1160px;
   margin: 0 auto;
@@ -1926,6 +1962,11 @@ p {
 
   .site-footer-nav {
     flex-wrap: wrap;
+  }
+
+  .site-footer-product-design .site-footer-inner > span,
+  .site-footer-product-design .site-footer-nav {
+    white-space: normal;
   }
 }
 

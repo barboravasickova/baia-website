@@ -3,7 +3,7 @@ import LanguageSwitch from "@/components/LanguageSwitch";
 
 export default function ProductDesignContactPage() {
   return (
-    <main className="page">
+    <main className="page page-footer-flush">
       <LanguageSwitch
         locale="cz"
         showBrandTrail
@@ -13,7 +13,11 @@ export default function ProductDesignContactPage() {
         aboutHref="/product-design/o-mne"
       />
 
-      <section id="contact" className="contact-section-content" aria-labelledby="about-connect-heading">
+      <section
+        id="contact"
+        className="contact-section-content product-design-subpage-content"
+        aria-labelledby="about-connect-heading"
+      >
         <p className="contact-final-eyebrow">KONTAKT</p>
         <h1 id="about-connect-heading" className="contact-final-title">
           vasickovabara@gmail.com
@@ -34,9 +38,6 @@ export default function ProductDesignContactPage() {
           <a href="mailto:vasickovabara@gmail.com">vasickovabara@gmail.com</a>
           <a href="https://www.linkedin.com/in/barbora-vasickova/" target="_blank" rel="noopener noreferrer">
             LinkedIn
-          </a>
-          <a href="/cv-barbora-vasickova.pdf" className="contact-final-cv">
-            Stáhnout životopis (PDF)
           </a>
         </div>
       </section>

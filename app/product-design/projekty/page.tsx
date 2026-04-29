@@ -9,12 +9,12 @@ import atelierFloraPreview from "@/images/atelier-flora-desktop.jpg";
 const previewImageById = {
   "lagom-app": lagomPreview,
   psochazky: psochazkyPreview,
-  "atelier-flora": atelierFloraPreview
+  "kytky-z-melatina": atelierFloraPreview
 } as const;
 
 export default function ProductDesignProjectsPage() {
   const content = contentByLocale.cz;
-  const projectsOrder = ["lagom-app", "psochazky"];
+  const projectsOrder = ["lagom-app", "psochazky", "kytky-z-melatina"];
   const sortedProjects = [...content.projects].sort((a, b) => {
     const aIndex = projectsOrder.indexOf(a.id);
     const bIndex = projectsOrder.indexOf(b.id);
@@ -34,7 +34,7 @@ export default function ProductDesignProjectsPage() {
         aboutHref="/product-design/o-mne"
       />
 
-      <section className="projects-overview" aria-labelledby="projects-overview-heading">
+      <section className="projects-overview product-design-subpage-content" aria-labelledby="projects-overview-heading">
         <h1 id="projects-overview-heading" className="projects-overview-title">
           Projekty
         </h1>

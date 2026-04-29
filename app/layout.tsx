@@ -15,8 +15,10 @@ export default function RootLayout({
   return (
     <html lang="cs">
       <body>
-        {children}
-        <SiteFooter />
+        <div className="app-shell">
+          <div className="app-shell-main">{children}</div>
+          <SiteFooter />
+        </div>
       </body>
     </html>
   );

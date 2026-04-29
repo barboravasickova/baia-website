@@ -3,7 +3,7 @@ import LanguageSwitch from "@/components/LanguageSwitch";
 
 export default function ProductDesignAboutPage() {
   return (
-    <main className="page">
+    <main className="page page-footer-flush">
       <LanguageSwitch
         locale="cz"
         showBrandTrail
@@ -13,7 +13,7 @@ export default function ProductDesignAboutPage() {
         aboutHref="/product-design/o-mne"
       />
 
-      <section className="content-section" aria-labelledby="about-me-heading">
+      <section className="content-section product-design-subpage-content" aria-labelledby="about-me-heading">
         <h1 id="about-me-heading" className="content-section-title">
           O mně
         </h1>

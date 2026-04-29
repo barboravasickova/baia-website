@@ -9,6 +9,7 @@ type LanguageSwitchProps = {
   projectsHref?: string;
   processHref?: string;
   aboutHref?: string;
+  contactHref?: string;
   includeProjectsInTrail?: boolean;
 };
 
@@ -19,23 +20,26 @@ export default function LanguageSwitch({
   brandTrailCurrentLabel,
   projectsHref,
   aboutHref,
+  contactHref,
   includeProjectsInTrail = false
 }: LanguageSwitchProps) {
   const resolvedProjectsHref = projectsHref ?? (locale === "cz" ? "#projekty" : "#projects");
   const resolvedAboutHref = aboutHref ?? (showBrandTrail && locale === "cz" ? "/product-design/o-mne" : "#about");
+  const resolvedContactHref =
+    contactHref ?? (showBrandTrail && locale === "cz" ? "/product-design/kontakt" : "#contact");
   const showSignpostLabel = backHref === "/";
   const sectionLinks =
     locale === "cz"
       ? [
           { label: "Projekty", href: resolvedProjectsHref },
           { label: "O mně", href: resolvedAboutHref },
-          { label: "Kontakt", href: "#contact" }
+          { label: "Kontakt", href: resolvedContactHref }
         ]
       : [
           { label: "Home", href: "#home" },
           { label: "Projects", href: resolvedProjectsHref },
           { label: "About", href: resolvedAboutHref },
-          { label: "Contact", href: "#contact" }
+          { label: "Contact", href: resolvedContactHref }
         ];
 
   return (
