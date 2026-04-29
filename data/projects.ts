@@ -192,15 +192,15 @@ export const contentByLocale: Record<Locale, SiteContent> = {
         ]
       },
       {
-        id: "kytky-z-melatina",
-        name: "Kytky z Melatína",
-        type: "UX/UI & Visual Identity",
+        id: "salon-u-potoka",
+        name: "Salon U Potoka",
+        type: "Rebrand a UX optimalizace",
         summary:
-          "Digitální showroom a vizuální identita pro zakázkovou výrobu suchých vazeb. Projekt zaměřený na budování značky od základu a zefektivnění poptávkového procesu pro unikátní produkty na míru.",
+          "Modernizace zastaralé identity psího salonu se zaměřením na vybudování důvěry, přehlednost služeb a zachování historického odkazu značky.",
         previewImage: "/projects/preview-coming-soon.svg",
-        previewAlt: "Kytky z Melatína – náhled projektu",
+        previewAlt: "Salon U Potoka – náhled projektu",
         sections: []
-      }
+      },
     ],
     visual: {
       title: "Ilustrace a vizuální komunikace",

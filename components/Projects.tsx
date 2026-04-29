@@ -10,7 +10,7 @@ type ProjectsProps = {
 };
 
 export default function Projects({ id, projects, locale, detailLabel, detailBasePath }: ProjectsProps) {
-  const homepageOrder = ["lagom-app", "psochazky"];
+  const homepageOrder = ["lagom-app", "psochazky", "salon-u-potoka"];
   const resolvedDetailBasePath = detailBasePath ?? `/${locale}`;
   const sortedProjects = [...projects].sort((a, b) => {
     const indexA = homepageOrder.indexOf(a.id);

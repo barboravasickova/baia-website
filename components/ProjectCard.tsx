@@ -1,8 +1,7 @@
 import type { Project } from "@/data/projects";
 import lagomPreview from "@/images/lagom_iphone.jpg";
 import psochazkyPreview from "@/images/psochazky_nahled.png";
-import atelierFloraPreview from "@/images/atelier-flora-desktop.jpg";
-import Image from "next/image";
+import Image, { type StaticImageData } from "next/image";
 import Link from "next/link";
 
 type ProjectCardProps = {
@@ -14,10 +13,10 @@ type ProjectCardProps = {
 
 export default function ProjectCard({ project, detailHref, detailLabel, reverse = false }: ProjectCardProps) {
   const previewStyleClass = `project-card-media-placeholder project-preview-${project.id}`;
-  const previewImageById: Partial<Record<Project["id"], typeof psochazkyPreview>> = {
+  const previewImageById: Partial<Record<Project["id"], StaticImageData | string>> = {
     "lagom-app": lagomPreview,
     psochazky: psochazkyPreview,
-    "kytky-z-melatina": atelierFloraPreview
+    "salon-u-potoka": "/projects/preview-coming-soon.svg"
   };
   const previewImage = previewImageById[project.id];
 

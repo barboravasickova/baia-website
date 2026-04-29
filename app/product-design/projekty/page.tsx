@@ -4,17 +4,17 @@ import LanguageSwitch from "@/components/LanguageSwitch";
 import { contentByLocale } from "@/data/projects";
 import lagomPreview from "@/images/lagom_iphone.jpg";
 import psochazkyPreview from "@/images/psochazky_nahled.png";
-import atelierFloraPreview from "@/images/atelier-flora-desktop.jpg";
 
 const previewImageById = {
   "lagom-app": lagomPreview,
   psochazky: psochazkyPreview,
-  "kytky-z-melatina": atelierFloraPreview
+  "salon-u-potoka": "/projects/preview-coming-soon.svg",
+  // others use placeholder styling (or explicit previewImage in data)
 } as const;
 
 export default function ProductDesignProjectsPage() {
   const content = contentByLocale.cz;
-  const projectsOrder = ["lagom-app", "psochazky", "kytky-z-melatina"];
+  const projectsOrder = ["lagom-app", "psochazky", "salon-u-potoka"];
   const sortedProjects = [...content.projects].sort((a, b) => {
     const aIndex = projectsOrder.indexOf(a.id);
     const bIndex = projectsOrder.indexOf(b.id);
@@ -51,6 +51,8 @@ export default function ProductDesignProjectsPage() {
                       src={previewImage}
                       alt={project.previewAlt}
                       className="projects-overview-media-image"
+                      width={1600}
+                      height={1000}
                       sizes="(min-width: 1100px) 30vw, (min-width: 760px) 46vw, 100vw"
                     />
                   </Link>

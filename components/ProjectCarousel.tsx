@@ -1,18 +1,19 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
-import Image from "next/image";
-import psochazkyFullPage from "@/images/psochazky_full_page.jpg";
-import psochazkyDesktop from "@/images/psochazky_desktop.jpg";
-import psochazkyPhone from "@/images/psochazky_phone.jpg";
+import Image, { type StaticImageData } from "next/image";
 
-const slides = [
-  { src: psochazkyFullPage, alt: "Psocházky - full page náhled" },
-  { src: psochazkyDesktop, alt: "Psocházky - desktop náhled" },
-  { src: psochazkyPhone, alt: "Psocházky - phone náhled" }
-];
+type CarouselSlide = {
+  src: StaticImageData | string;
+  alt: string;
+};
 
-export default function PsochazkyCarousel() {
+type ProjectCarouselProps = {
+  slides: CarouselSlide[];
+  ariaLabel: string;
+};
+
+export default function ProjectCarousel({ slides, ariaLabel }: ProjectCarouselProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const total = slides.length;
@@ -26,7 +27,7 @@ export default function PsochazkyCarousel() {
       { ...slides[currentIndex], position: "center" },
       { ...slides[next], position: "side" }
     ];
-  }, [currentIndex, total]);
+  }, [currentIndex, slides, total]);
 
   useEffect(() => {
     if (!isModalOpen) {
@@ -43,49 +44,64 @@ export default function PsochazkyCarousel() {
     return () => window.removeEventListener("keydown", onKeyDown);
   }, [isModalOpen]);
 
+  if (slides.length === 0) {
+    return null;
+  }
+
   return (
     <>
-      <div className="lagom-carousel-wrap" aria-label="Náhledy projektu Psocházky">
+      <div className="project-carousel-wrap" aria-label={ariaLabel}>
         <button
           type="button"
-          className="lagom-carousel-arrow lagom-carousel-arrow-left"
+          className="project-carousel-arrow project-carousel-arrow-left"
           onClick={() => setCurrentIndex((prev) => (prev - 1 + total) % total)}
           aria-label="Předchozí náhled"
         >
           ←
         </button>
 
-        <div className="lagom-carousel-stage">
-          {visibleSlides.map((slide) => (
+        <div className="project-carousel-stage">
+          {visibleSlides.map((slide, index) => (
             <figure
-              key={`${slide.alt}-${slide.position}`}
-              className={`lagom-carousel-card lagom-carousel-card-${slide.position}`}
+              key={`${slide.alt}-${slide.position}-${index}`}
+              className={`project-carousel-card project-carousel-card-${slide.position}`}
             >
               {slide.position === "center" ? (
                 <button
                   type="button"
-                  className="lagom-carousel-open"
+                  className="project-carousel-open"
                   onClick={() => setIsModalOpen(true)}
                   aria-label="Zvětšit prostřední obrázek"
                 >
                   <Image
                     src={slide.src}
                     alt={slide.alt}
-                    className="lagom-carousel-image"
+                    className="project-carousel-image"
                     priority
                     width={1400}
                     height={980}
                   />
                 </button>
               ) : (
-                <Image
-                  src={slide.src}
-                  alt={slide.alt}
-                  className="lagom-carousel-image"
-                  priority
-                  width={1400}
-                  height={980}
-                />
+                <button
+                  type="button"
+                  className="project-carousel-side-trigger"
+                  onClick={() =>
+                    setCurrentIndex((prev) =>
+                      slide.position === "side" && index === 0 ? (prev - 1 + total) % total : (prev + 1) % total
+                    )
+                  }
+                  aria-label={index === 0 ? "Přejít na předchozí náhled" : "Přejít na další náhled"}
+                >
+                  <Image
+                    src={slide.src}
+                    alt={slide.alt}
+                    className="project-carousel-image"
+                    priority
+                    width={1400}
+                    height={980}
+                  />
+                </button>
               )}
             </figure>
           ))}
@@ -93,7 +109,7 @@ export default function PsochazkyCarousel() {
 
         <button
           type="button"
-          className="lagom-carousel-arrow lagom-carousel-arrow-right"
+          className="project-carousel-arrow project-carousel-arrow-right"
           onClick={() => setCurrentIndex((prev) => (prev + 1) % total)}
           aria-label="Další náhled"
         >
@@ -101,18 +117,18 @@ export default function PsochazkyCarousel() {
         </button>
       </div>
 
-      {isModalOpen ? (
-        <div className="lagom-lightbox" role="dialog" aria-modal="true" aria-label="Zvětšený náhled">
+      {isModalOpen && currentSlide ? (
+        <div className="project-lightbox" role="dialog" aria-modal="true" aria-label="Zvětšený náhled">
           <button
             type="button"
-            className="lagom-lightbox-backdrop"
+            className="project-lightbox-backdrop"
             onClick={() => setIsModalOpen(false)}
             aria-label="Zavřít zvětšený náhled"
           />
-          <div className="lagom-lightbox-content">
+          <div className="project-lightbox-content">
             <button
               type="button"
-              className="lagom-lightbox-close"
+              className="project-lightbox-close"
               onClick={() => setIsModalOpen(false)}
               aria-label="Zavřít"
             >
@@ -121,7 +137,7 @@ export default function PsochazkyCarousel() {
             <Image
               src={currentSlide.src}
               alt={currentSlide.alt}
-              className="lagom-lightbox-image"
+              className="project-lightbox-image"
               priority
               width={1600}
               height={1120}

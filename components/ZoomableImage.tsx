@@ -47,26 +47,26 @@ export default function ZoomableImage({
 
   return (
     <>
-      <button type="button" className="lagom-zoom-trigger" onClick={() => setIsOpen(true)} aria-label={ariaLabel}>
+      <button type="button" className="project-zoom-trigger" onClick={() => setIsOpen(true)} aria-label={ariaLabel}>
         <Image src={src} alt={alt} className={className} width={width} height={height} />
       </button>
 
       {isOpen ? (
-        <div className="lagom-lightbox" role="dialog" aria-modal="true" aria-label="Zvětšený náhled">
+        <div className="project-lightbox" role="dialog" aria-modal="true" aria-label="Zvětšený náhled">
           <button
             type="button"
-            className="lagom-lightbox-backdrop"
+            className="project-lightbox-backdrop"
             onClick={closeModal}
             aria-label="Zavřít zvětšený náhled"
           />
-          <div className="lagom-lightbox-content">
-            <button type="button" className="lagom-lightbox-close" onClick={closeModal} aria-label="Zavřít">
+          <div className="project-lightbox-content">
+            <button type="button" className="project-lightbox-close" onClick={closeModal} aria-label="Zavřít">
               ×
             </button>
             <div
-              className={`lagom-lightbox-image-wrap ${
-                isFullSize ? "lagom-lightbox-image-wrap-full" : ""
-              } ${enableFullSizeToggle ? "lagom-lightbox-image-wrap-zoomable" : ""}`}
+              className={`project-lightbox-image-wrap ${
+                isFullSize ? "project-lightbox-image-wrap-full" : ""
+              } ${enableFullSizeToggle ? "project-lightbox-image-wrap-zoomable" : ""}`}
               onClick={enableFullSizeToggle ? () => setIsFullSize((prev) => !prev) : undefined}
               role={enableFullSizeToggle ? "button" : undefined}
               tabIndex={enableFullSizeToggle ? 0 : undefined}
@@ -85,14 +85,14 @@ export default function ZoomableImage({
               <Image
                 src={src}
                 alt={alt}
-                className={`lagom-lightbox-image ${isFullSize ? "lagom-lightbox-image-full" : ""}`}
+                className={`project-lightbox-image ${isFullSize ? "project-lightbox-image-full" : ""}`}
                 priority
               />
             </div>
             {enableFullSizeToggle ? (
               <button
                 type="button"
-                className="lagom-lightbox-fullsize"
+                className="project-lightbox-fullsize"
                 onClick={() => setIsFullSize((prev) => !prev)}
                 aria-label={isFullSize ? "Přepnout na přizpůsobenou velikost" : "Zobrazit obrázek ve 100% velikosti"}
               >

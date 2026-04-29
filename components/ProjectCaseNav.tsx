@@ -10,7 +10,7 @@ const NAV_ITEMS = [
   { id: "reflexe", label: "Reflexe" }
 ] as const;
 
-export default function LagomProjectNav() {
+export default function ProjectCaseNav() {
   const [activeId, setActiveId] = useState<(typeof NAV_ITEMS)[number]["id"]>("o-projektu");
 
   useEffect(() => {
@@ -89,7 +89,7 @@ export default function LagomProjectNav() {
   }, []);
 
   return (
-    <aside className="lagom-project-nav" aria-label="Navigace case study">
+    <aside className="project-case-nav" aria-label="Navigace case study">
       {NAV_ITEMS.map((item) => {
         const isActive = activeId === item.id;
 
