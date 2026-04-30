@@ -10,10 +10,11 @@ import { contentByLocale, getProjectByLocale } from "@/data/projects";
 import lagomPhoneHand from "@/images/lagom-phone-hand.jpg";
 import lagomIphone from "@/images/lagom_iphone.jpg";
 import lagomAktivita from "@/images/lagom-aktivita.jpg";
+import aktivitaLagom from "@/images/aktivita-lagom.jpg";
 import rozhovoryLagom from "@/images/rozhovory-lagom.jpg";
 import lagomUserPersona from "@/images/lagom-user-persona.jpg";
 import lagomLoFi from "@/images/lagom-lo-fi.jpg";
-import homepageLagom from "@/images/homepage-lagom.jpg";
+import lagomHomepage from "@/images/lagom-homepage.png";
 import komunitaLagom from "@/images/komunita-lagom.jpg";
 import psochazkyFullPage from "@/images/psochazky_full_page.jpg";
 import psochazkyDesktop from "@/images/psochazky_desktop.jpg";
@@ -152,13 +153,13 @@ const projectConfigById: Record<(typeof projectsOrder)[number], ProjectConfig> =
       ],
       images: [
         {
-          src: homepageLagom,
+          src: lagomHomepage,
           alt: "Lagom homepage",
           ariaLabel: "Zvětšit obrázek Lagom homepage",
           className: "project-process-image project-user-persona-image"
         },
         {
-          src: lagomAktivita,
+          src: aktivitaLagom,
           alt: "Lagom aktivita",
           ariaLabel: "Zvětšit obrázek Lagom aktivita",
           className: "project-process-image project-user-persona-image"
@@ -484,7 +485,11 @@ export default async function ProductDesignProjectDetailPage({ params }: Project
                     <ul className="project-list">{projectConfig.design.list.map((item) => <li key={item}>{item}</li>)}</ul>
                   ) : null}
                   {projectConfig.design.afterList ? <p className="project-list-followup">{projectConfig.design.afterList}</p> : null}
-                  <div className="project-design-gallery">
+                  <div
+                    className={`project-design-gallery${
+                      project.id === "lagom-app" ? " project-design-gallery--single-row" : ""
+                    }`}
+                  >
                     {projectConfig.design.images.map((image) => (
                       <ZoomableImage
                         key={`${image.alt}-${image.ariaLabel}`}

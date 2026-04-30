@@ -1510,6 +1510,14 @@ p {
   grid-template-columns: 1fr;
 }
 
+.project-design-gallery--single-row {
+  grid-auto-flow: column;
+  grid-auto-columns: minmax(260px, 1fr);
+  grid-template-columns: none;
+  overflow-x: auto;
+  align-items: start;
+}
+
 .project-intro-grid {
   margin-top: 1rem;
   display: grid;
@@ -1705,6 +1713,10 @@ p {
 
   .project-design-gallery {
     grid-template-columns: 1fr;
+  }
+
+  .project-design-gallery--single-row {
+    grid-auto-columns: minmax(0, 1fr);
   }
 
   .project-card-wide {
