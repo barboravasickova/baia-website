@@ -61,6 +61,7 @@ type ProjectConfig = {
   design: ProjectSectionConfig;
   reflection: ProjectSectionConfig;
   cta?: { label: string; href: string };
+  ctaSecondary?: { label: string; href: string };
   carouselSlides: { src: StaticImageData | string; alt: string }[];
 };
 
@@ -187,6 +188,10 @@ const projectConfigById: Record<(typeof projectsOrder)[number], ProjectConfig> =
         "Do budoucna vidím prostor pro rozšíření o dlouhodobé reporty a hlubší zaměření na přístupnost (accessibility). Cílem by bylo otestovat kontrastní poměry v reálném terénu, aby byla aplikace plně funkční i na přímém slunci během outdoorových aktivit."
     },
     cta: { label: "Zobrazit kompletní UX Case Study v PDF", href: "/lagom-ux-case-study.pdf" },
+    ctaSecondary: {
+      label: "Zobrazit prototyp",
+      href: "https://www.figma.com/proto/kK5AGJOATrbXmKjHYAgZ70/Aplikace-Lagom?node-id=189-19&p=f&t=W99RlAoUbGZXLlUo-1&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=189%3A19"
+    },
     carouselSlides: [
       { src: lagomPhoneHand, alt: "Lagom App náhled v ruce" },
       { src: lagomIphone, alt: "Lagom App náhled rozhraní" },
@@ -514,11 +519,23 @@ export default async function ProductDesignProjectDetailPage({ params }: Project
               {renderSectionContent(projectConfig.reflection)}
             </section>
 
-            {projectConfig.cta ? (
+            {projectConfig.cta || projectConfig.ctaSecondary ? (
               <div className="project-cta-block">
-                <a className="pdf-link" href={projectConfig.cta.href} target="_blank" rel="noopener noreferrer">
-                  {projectConfig.cta.label}
-                </a>
+                {projectConfig.cta ? (
+                  <a className="pdf-link" href={projectConfig.cta.href} target="_blank" rel="noopener noreferrer">
+                    {projectConfig.cta.label}
+                  </a>
+                ) : null}
+                {projectConfig.ctaSecondary ? (
+                  <a
+                    className="pdf-link"
+                    href={projectConfig.ctaSecondary.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {projectConfig.ctaSecondary.label}
+                  </a>
+                ) : null}
               </div>
             ) : null}
           </div>

@@ -50,7 +50,7 @@ export default function ProjectCarousel({ slides, ariaLabel }: ProjectCarouselPr
 
   return (
     <>
-      <div className="project-carousel-wrap" aria-label={ariaLabel}>
+      <div className="project-carousel-wrap project-carousel-desktop" aria-label={ariaLabel}>
         <button
           type="button"
           className="project-carousel-arrow project-carousel-arrow-left"
@@ -115,6 +115,45 @@ export default function ProjectCarousel({ slides, ariaLabel }: ProjectCarouselPr
         >
           →
         </button>
+      </div>
+
+      <div className="project-carousel-mobile" aria-label={ariaLabel}>
+        <button
+          type="button"
+          className="project-carousel-mobile-main"
+          onClick={() => setIsModalOpen(true)}
+          aria-label="Zvětšit obrázek"
+        >
+          <Image
+            src={currentSlide.src}
+            alt={currentSlide.alt}
+            className="project-carousel-mobile-main-image"
+            priority
+            width={1400}
+            height={980}
+          />
+        </button>
+        <div className="project-carousel-mobile-thumbs" role="tablist">
+          {slides.map((slide, index) => (
+            <button
+              key={`${slide.alt}-thumb-${index}`}
+              type="button"
+              role="tab"
+              aria-selected={index === currentIndex}
+              className={`project-carousel-mobile-thumb${index === currentIndex ? " is-active" : ""}`}
+              onClick={() => setCurrentIndex(index)}
+              aria-label={`Zobrazit obrázek ${index + 1} z ${total}`}
+            >
+              <Image
+                src={slide.src}
+                alt={slide.alt}
+                className="project-carousel-mobile-thumb-image"
+                width={400}
+                height={280}
+              />
+            </button>
+          ))}
+        </div>
       </div>
 
       {isModalOpen && currentSlide ? (
