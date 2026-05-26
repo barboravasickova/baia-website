@@ -24,6 +24,7 @@ import psochazkyFbCollage from "@/images/psochazky-fb-collage.jpg";
 import psochazkyUserFlow from "@/images/psochazky-user-flow.jpg";
 import psochazkyDesign from "@/images/psochazky-design.png";
 import psochazkyLoFi from "@/images/psochazky-lo-fi.jpg";
+import salonUPotokaPreview from "@/images/salon-u-potoka-nahled.png";
 
 type ProjectDetailPageProps = {
   params: Promise<{ id: string }>;
@@ -294,7 +295,7 @@ const projectConfigById: Record<(typeof projectsOrder)[number], ProjectConfig> =
     ]
   },
   "salon-u-potoka": {
-    title: "Nová identita & Web pro psí salon",
+    title: "Nová identita a web pro psí salon",
     eyebrow: "Salon U Potoka",
     tags: ["Rebrand", "UX optimalizace", "Lokální služba"],
     lead:
@@ -305,8 +306,8 @@ const projectConfigById: Record<(typeof projectsOrder)[number], ProjectConfig> =
     context: "Projekt je aktuálně ve fázi přípravy obsahu a vizuálních podkladů.",
     projectIntro: ["Detail case study bude doplněn po dokončení realizace."],
     introImage: {
-      src: "/projects/preview-coming-soon.svg",
-      alt: "Salon U Potoka - připravovaný projekt",
+      src: salonUPotokaPreview,
+      alt: "Salon U Potoka - náhled webu",
       ariaLabel: "Zvětšit náhled projektu Salon U Potoka",
       className: "project-process-image project-intro-image"
     },
@@ -314,7 +315,7 @@ const projectConfigById: Record<(typeof projectsOrder)[number], ProjectConfig> =
     idea: { paragraphs: ["Obsah sekce připravujeme."] },
     design: { paragraphs: ["Obsah sekce připravujeme."] },
     reflection: { paragraphs: ["Obsah sekce připravujeme."] },
-    carouselSlides: [{ src: "/projects/preview-coming-soon.svg", alt: "Salon U Potoka - náhled" }]
+    carouselSlides: [{ src: salonUPotokaPreview, alt: "Salon U Potoka - náhled webu" }]
   }
 };
 
@@ -387,6 +388,9 @@ export default async function ProductDesignProjectDetailPage({ params }: Project
   const getNextProjectPreview = (projectId: string) => {
     if (projectId === "psochazky") {
       return psochazkyPreview;
+    }
+    if (projectId === "salon-u-potoka") {
+      return salonUPotokaPreview;
     }
     return contentByLocale.cz.projects.find((projectItem) => projectItem.id === projectId)?.previewImage;
   };

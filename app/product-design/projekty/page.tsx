@@ -4,11 +4,12 @@ import LanguageSwitch from "@/components/LanguageSwitch";
 import { contentByLocale } from "@/data/projects";
 import lagomPreview from "@/images/lagom_iphone.jpg";
 import psochazkyPreview from "@/images/psochazky_nahled.png";
+import salonUPotokaPreview from "@/images/salon-u-potoka-nahled.png";
 
 const previewImageById = {
   "lagom-app": lagomPreview,
   psochazky: psochazkyPreview,
-  "salon-u-potoka": "/projects/preview-coming-soon.svg",
+  "salon-u-potoka": salonUPotokaPreview,
   // others use placeholder styling (or explicit previewImage in data)
 } as const;
 

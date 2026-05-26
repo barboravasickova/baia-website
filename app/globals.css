@@ -487,6 +487,13 @@ p {
   border-radius: 16px;
   overflow: hidden;
   background: #ffffff;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.projects-overview-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 30px rgba(17, 17, 17, 0.08);
+  border-color: #d1d5db;
 }
 
 .projects-overview-media-link,
@@ -494,6 +501,7 @@ p {
   display: block;
   aspect-ratio: 16 / 10;
   background: #f3f4f6;
+  overflow: hidden;
 }
 
 .projects-overview-media-image {
@@ -501,6 +509,19 @@ p {
   height: 100%;
   display: block;
   object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.projects-overview-card:hover .projects-overview-media-image {
+  transform: scale(1.04);
+}
+
+.projects-overview-card .project-card-cta-arrow {
+  transition: transform 0.2s ease;
+}
+
+.projects-overview-card:hover .project-card-cta-arrow {
+  transform: translateX(4px);
 }
 
 .projects-overview-body {

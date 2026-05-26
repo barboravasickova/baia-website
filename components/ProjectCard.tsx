@@ -1,6 +1,7 @@
 import type { Project } from "@/data/projects";
 import lagomPreview from "@/images/lagom_iphone.jpg";
 import psochazkyPreview from "@/images/psochazky_nahled.png";
+import salonUPotokaPreview from "@/images/salon-u-potoka-nahled.png";
 import Image, { type StaticImageData } from "next/image";
 import Link from "next/link";
 
@@ -16,7 +17,7 @@ export default function ProjectCard({ project, detailHref, detailLabel, reverse 
   const previewImageById: Partial<Record<Project["id"], StaticImageData | string>> = {
     "lagom-app": lagomPreview,
     psochazky: psochazkyPreview,
-    "salon-u-potoka": "/projects/preview-coming-soon.svg"
+    "salon-u-potoka": salonUPotokaPreview
   };
   const previewImage = previewImageById[project.id];
 
