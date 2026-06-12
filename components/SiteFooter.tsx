@@ -7,15 +7,17 @@ export default function SiteFooter() {
   const pathname = usePathname();
   const currentYear = new Date().getFullYear();
 
-  if (pathname === "/") {
+  if (pathname === "/" || pathname.startsWith("/illustration")) {
     return null;
   }
 
   const isProductDesign = pathname.startsWith("/product-design");
-  const isIllustration = pathname.startsWith("/illustration");
 
   return (
-    <footer className={`site-footer${isProductDesign ? " site-footer-product-design" : ""}`} aria-label="Patička webu">
+    <footer
+      className={`site-footer${isProductDesign ? " site-footer-product-design" : ""}`}
+      aria-label="Patička webu"
+    >
       <div className="site-footer-inner">
         {isProductDesign ? (
           <>
@@ -27,7 +29,7 @@ export default function SiteFooter() {
             </nav>
           </>
         ) : (
-          <span>{isIllustration ? `BAIA Illustration © ${currentYear}` : `BAIA © ${currentYear}`}</span>
+          <span>BAIA © {currentYear}</span>
         )}
       </div>
     </footer>
