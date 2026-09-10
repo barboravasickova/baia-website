@@ -1,8 +1,8 @@
-import Link from "next/link";
 import { Cormorant_Garamond } from "next/font/google";
 import baiaLogoStatic from "@/images/baia_logo_static_transparent.webp";
 import Image from "next/image";
 import IllustrationPageFooter from "@/components/IllustrationPageFooter";
+import IllustrationTopNav from "@/components/IllustrationTopNav";
 
 const illustrationFont = Cormorant_Garamond({
   subsets: ["latin", "latin-ext"],
@@ -12,24 +12,7 @@ const illustrationFont = Cormorant_Garamond({
 export default function IllustrationContactPage() {
   return (
     <main className={`page illustration-page ${illustrationFont.className}`} aria-label="Kontakt">
-      <nav id="top-navigation" className="top-nav" aria-label="Hlavní navigace">
-        <div className="top-nav-brand-trail" aria-label="Navigační cesta">
-          <Link href="/" className="top-nav-brand-badge" aria-label="Domů">
-            B
-          </Link>
-          <span aria-hidden="true">/</span>
-          <Link href="/" className="top-nav-brand-link">
-            Illustration
-          </Link>
-          <span aria-hidden="true">/</span>
-          <span className="top-nav-brand-link-current">Kontakt</span>
-        </div>
-        <div className="top-nav-links" aria-label="Sekce stránky">
-          <Link href="/#illustrations">Ilustrace</Link>
-          <Link href="/o-mne">O mně</Link>
-          <Link href="/kontakt">Kontakt</Link>
-        </div>
-      </nav>
+      <IllustrationTopNav currentLabel="Kontakt" />
 
       <section className="illustration-contact illustration-subpage" aria-label="Kontakt">
         <Image

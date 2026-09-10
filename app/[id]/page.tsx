@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Cormorant_Garamond } from "next/font/google";
 import IllustrationPageFooter from "@/components/IllustrationPageFooter";
+import IllustrationTopNav from "@/components/IllustrationTopNav";
 import { getIllustrationById, illustrations } from "@/data/illustrations";
 
 const illustrationFont = Cormorant_Garamond({
@@ -28,20 +29,7 @@ export default async function IllustrationDetailPage({ params }: IllustrationDet
 
   return (
     <main className={`page illustration-page ${illustrationFont.className}`} aria-label="Detail ilustrace">
-      <nav id="top-navigation" className="top-nav" aria-label="Hlavní navigace">
-        <div className="top-nav-brand-trail" aria-label="Navigační cesta">
-          <Link href="/" className="top-nav-brand-badge" aria-label="Domů">
-            B
-          </Link>
-          <span aria-hidden="true">/</span>
-          <span className="top-nav-brand-link-current">Illustration</span>
-        </div>
-        <div className="top-nav-links" aria-label="Sekce stránky">
-          <Link href="/#illustrations">Ilustrace</Link>
-          <Link href="/o-mne">O mně</Link>
-          <Link href="/kontakt">Kontakt</Link>
-        </div>
-      </nav>
+      <IllustrationTopNav />
 
       <article className="illustration-detail">
         <p className="illustration-detail-back">

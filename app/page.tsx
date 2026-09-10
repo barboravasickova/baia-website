@@ -3,6 +3,7 @@ import { Cormorant_Garamond } from "next/font/google";
 import baiaLogo from "@/images/baia-logo.gif";
 import Image from "next/image";
 import IllustrationPageFooter from "@/components/IllustrationPageFooter";
+import IllustrationTopNav from "@/components/IllustrationTopNav";
 import { getSortedIllustrations, illustrations } from "@/data/illustrations";
 
 const illustrationFont = Cormorant_Garamond({
@@ -15,25 +16,12 @@ export default function HomePage() {
 
   return (
     <main className={`page illustration-page ${illustrationFont.className}`} aria-label="Illustration">
-      <nav id="top-navigation" className="top-nav" aria-label="Hlavní navigace">
-        <div className="top-nav-brand-trail" aria-label="Navigační cesta">
-          <Link href="/" className="top-nav-brand-badge" aria-label="Domů">
-            B
-          </Link>
-          <span aria-hidden="true">/</span>
-          <span className="top-nav-brand-link-current">Illustration</span>
-        </div>
-        <div className="top-nav-links" aria-label="Sekce stránky">
-          <a href="#illustrations">Ilustrace</a>
-          <Link href="/o-mne">O mně</Link>
-          <Link href="/kontakt">Kontakt</Link>
-        </div>
-      </nav>
+      <IllustrationTopNav illustrationsHref="#illustrations" />
 
       <section className="illustration-hero" aria-label="Úvod ilustrace">
         <div className="illustration-hero-grid">
           <div className="illustration-hero-media">
-            <Image className="illustration-logo-image" src={baiaLogo} alt="BAIA" width={320} priority />
+            <Image className="illustration-logo-image" src={baiaLogo} alt="BAIA" width={480} height={480} priority />
           </div>
           <div className="illustration-hero-content">
             <p className="illustration-hero-text">
