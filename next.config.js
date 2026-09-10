@@ -1,4 +1,13 @@
 /** @type {import('next').NextConfig} */
+
+/** Legacy detail URLs only — must not use /illustration/:id (that breaks /illustration/*.webp assets). */
+const illustrationDetailIds = [
+  "illustration-doubravka-1",
+  "evoluce-kvetu",
+  "zivot-s-tuzkou-a-psem",
+  "vyber-ze-skicaku"
+];
+
 const nextConfig = {
   async redirects() {
     return [
@@ -17,11 +26,11 @@ const nextConfig = {
         destination: "/kontakt",
         permanent: true
       },
-      {
-        source: "/illustration/:id",
-        destination: "/:id",
+      ...illustrationDetailIds.map((id) => ({
+        source: `/illustration/${id}`,
+        destination: `/${id}`,
         permanent: true
-      }
+      }))
     ];
   }
 };
