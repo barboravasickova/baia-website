@@ -6,10 +6,10 @@ import productDesignFaviconLight from "@/images/product-design-favicon-light.svg
 
 export const metadata: Metadata = {
   title: {
-    default: "BAIA Portfolio",
-    template: "%s | BAIA Portfolio"
+    default: "BAIA – ilustrace",
+    template: "%s | BAIA"
   },
-  description: "Portfolio UX & Visual Designer Barbora Vašíčková (BAIA)",
+  description: "Autorské ilustrace a vizuální tvorba Barbora Vašíčková (BAIA).",
   icons: {
     icon: [
       {

@@ -24,7 +24,7 @@ export default function ProductDesignContactPage() {
         </h1>
         <p className="contact-final-subtitle">
           Ráda proberu nové projekty, UX konzultace nebo spolupráci pod značkou{" "}
-          <Link href="/illustration" className="contact-final-inline-link">
+          <Link href="/" className="contact-final-inline-link">
             BAIA
           </Link>
           .

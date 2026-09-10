@@ -2,12 +2,13 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { isIllustrationSitePath } from "@/data/illustrations";
 
 export default function SiteFooter() {
   const pathname = usePathname();
   const currentYear = new Date().getFullYear();
 
-  if (pathname === "/" || pathname.startsWith("/illustration")) {
+  if (isIllustrationSitePath(pathname)) {
     return null;
   }
 

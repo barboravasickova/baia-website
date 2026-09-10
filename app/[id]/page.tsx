@@ -37,15 +37,15 @@ export default async function IllustrationDetailPage({ params }: IllustrationDet
           <span className="top-nav-brand-link-current">Illustration</span>
         </div>
         <div className="top-nav-links" aria-label="Sekce stránky">
-          <Link href="/illustration#illustrations">Ilustrace</Link>
-          <Link href="/illustration/o-mne">O mně</Link>
-          <Link href="/illustration/kontakt">Kontakt</Link>
+          <Link href="/#illustrations">Ilustrace</Link>
+          <Link href="/o-mne">O mně</Link>
+          <Link href="/kontakt">Kontakt</Link>
         </div>
       </nav>
 
       <article className="illustration-detail">
         <p className="illustration-detail-back">
-          <Link href="/illustration">← Zpět</Link>
+          <Link href="/">← Zpět</Link>
         </p>
         <div className="illustration-detail-grid">
           <div className="illustration-detail-media-stack">

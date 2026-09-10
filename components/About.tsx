@@ -19,7 +19,7 @@ export default function About({ title, text }: AboutProps) {
               Ráda proberu nové projekty, UX konzultace
               <br />
               nebo spolupráci na ilustracích pod mou značkou{" "}
-              <Link href="/illustration" className="contact-final-inline-link">
+              <Link href="/" className="contact-final-inline-link">
                 BAIA
               </Link>
               .

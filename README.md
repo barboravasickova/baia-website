@@ -1,27 +1,24 @@
 # baia-website
 
-Next.js portfolio web with a split landing page and two main sections.
+Next.js web pro značku BAIA (ilustrace) a UX portfolio pod `/product-design`.
 
 ## Active routes
 
-- `/` - main split landing (signpost)
+- `/` - ilustrace (homepage)
+- `/o-mne`, `/kontakt`, `/[id]` - ilustrace (podstránky a detail)
 - `/product-design` - UX/Product Design portfolio
 - `/product-design/projects/[id]` - project detail
-- `/illustration` - BAIA illustration and shop landing
+
+Staré URL `/illustration/*` přesměrovávají na kořenové cesty (301).
 
 ## Project structure
 
 - `app/` - routes and page-level layout/styles
 - `components/` - reusable UI sections
-- `data/projects.ts` - editable site content (texts + project data)
+- `data/projects.ts` - product design content
+- `data/illustrations.ts` - ilustrace v galerii
 - `images/` - imported image assets used via `next/image`
 - `public/` - static public assets served by URL
-
-## Content editing
-
-- Portfolio and project texts: `data/projects.ts`
-- Product design page composition: `app/product-design/page.tsx`
-- Illustration page composition: `app/illustration/page.tsx`
 
 ## Run locally
 

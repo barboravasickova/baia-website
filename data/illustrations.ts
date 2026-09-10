@@ -106,3 +106,14 @@ export function getSortedIllustrations(items: IllustrationItem[]): IllustrationI
 export function getIllustrationById(id: string): IllustrationItem | undefined {
   return illustrations.find((item) => item.id === id);
 }
+
+export function isIllustrationSitePath(pathname: string): boolean {
+  if (pathname === "/" || pathname === "/o-mne" || pathname === "/kontakt") {
+    return true;
+  }
+  if (pathname.startsWith("/illustration")) {
+    return true;
+  }
+  const id = pathname.replace(/^\//, "");
+  return illustrations.some((item) => item.id === id);
+}

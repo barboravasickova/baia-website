@@ -51,7 +51,7 @@ export default function ProductDesignAboutPage() {
         </p>
 
         <p className="project-detail-text">
-          <Link href="/illustration" className="about-clean-link">
+          <Link href="/" className="about-clean-link">
             Když zrovna neřeším UX, najdete mě u barev pod značkou BAIA →
           </Link>
         </p>
